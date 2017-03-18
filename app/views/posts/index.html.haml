@@ -4,6 +4,12 @@
 	= link_to (image_tag post.image.url(:small))
 	%h2= link_to post.title, post
 	%p
+		= post.get_upvotes.size
+		Likes
+	%p
+		= post.get_downvotes.size
+		Dislikes
+	%p
 		= post.comments.count
 		Comments
 = link_to "New Inspiration", new_post_path
