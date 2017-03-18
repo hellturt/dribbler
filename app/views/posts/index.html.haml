@@ -1,6 +1,7 @@
 %h1 this is the homepage
 
 - @posts.each do |post|
+	= link_to (image_tag post.image.url(:small))
 	%h2= link_to post.title, post
 
 = link_to "New Inspiration", new_post_path
