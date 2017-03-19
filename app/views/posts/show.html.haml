@@ -5,6 +5,8 @@
 		= @post.user.name
 		about
 		= time_ago_in_words(@post.created_at)
+		in
+		= @post.category.name
 	.clearfix
 		.post_image_description
 			= image_tag @post.image.url(:medium)

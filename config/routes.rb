@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 		end
 		resources :comments
 	end
-	
+	resources :categories
 
 	root "posts#index"
 end
