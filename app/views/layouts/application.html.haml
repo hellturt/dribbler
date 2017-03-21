@@ -16,13 +16,24 @@
 
       %nav
         - if user_signed_in?
-          = link_to current_user.name, edit_user_registration_path
+          %a.drop_menu= current_user.name
+          %ul.dropdown
+            %li
+              = link_to "Edit Profile", edit_user_registration_path
+            %li
+              = link_to "Sign Out", destroy_user_session_path, method: :delete
+          
           = link_to "Add New Inspiration", new_post_path, class: "button"
         - else
           = link_to "Sign In", new_user_session_path
           = link_to "Sign Up", new_user_registration_path, class: "button"
-  %p.notice= notice
-  %p.alert= alert
+  
 
-  .wrapper
+  .wrapper.clearfix
+    %p.notice= notice
+    %p.alert= alert
     = yield
+
+  %footer
+    .container
+      %p develop by Ahmad Faiz Mohd

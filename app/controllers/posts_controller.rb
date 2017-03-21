@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 	before_action :authenticate_user!, except: [:index, :show]
+	before_action :get_category, only: [:new, :create, :edit]
 
 	def index
 		@posts = Post.all.order("created_at DESC")
@@ -13,7 +14,6 @@ class PostsController < ApplicationController
 
 	def new
 		@post = current_user.posts.build
-		@category = Category.all
 	end
 
 	def create
@@ -62,4 +62,9 @@ class PostsController < ApplicationController
 	def post_params
 		params.require(:post).permit(:title, :link, :description, :image, :category_id)
 	end
+
+	def get_category
+		@category = Category.all
+	end
+
 end

@@ -1,8 +1,14 @@
 = simple_form_for @post do |f|
-	= f.input :image
-	= f.input :title
-	= f.input :category_id, collection: @category, prompt: "Select category"
-	= f.input :link
-	= f.input :description
+	%div.left
+		= f.input :image, label: "Upload your inspiration", input_html: { id: 'pictureInput' }
+		%div#target
+			-if @post.image?
+				= image_tag @post.image.url
 
-	= f.button :submit
+	%div.right
+		= f.input :title
+		= f.input :category_id, collection: @category, prompt: "Select category"
+		= f.input :link
+		= f.input :description, input_html: {rows: 16}
+		= f.button :submit
+		= link_to "Cancel", @post

@@ -1,19 +1,9 @@
-- if user_signed_in?
-	%p.intro
-		Hello,
-		= current_user.name
-		%br/
-		%span
-			Share your inspiration and see what inspired others
--else
-	%p.intro
-		What's your muse?
-		%br/
-		%span
-			Share your inspiration and see what inspired others
+%h1 
+	Inspiration by
+	= @user.name
 
 #posts
-	- @posts.each do |post|
+	- @user_posts.each do |post|
 		.post
 			.post_image
 				= link_to (image_tag post.image.url(:small)), post
@@ -22,9 +12,7 @@
 					%h2= link_to post.title, post
 				.data.clearfix
 					%p.username
-						Shared by
-						= link_to post.user.name, user_path(post.user)
-						in
+						Shared in
 						= post.category.name
 					%p.buttons
 						%span
