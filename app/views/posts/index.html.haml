@@ -22,11 +22,14 @@
 					%h2= link_to post.title, post
 				.data.clearfix
 					%p.username
-						Shared by
+						by
 						= link_to post.user.name, user_path(post.user)
 						in
 						= post.category.name
 					%p.buttons
+						%span
+							%i.fa.fa-eye
+							= post.user.followers.count
 						%span
 							%i.fa.fa-comments-o
 							= post.comments.count

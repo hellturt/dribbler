@@ -2,10 +2,12 @@
 	= image_tag @user.avatar.url(:thumb)
 	Inspiration by
 	= @user.name
-	- if (current_user != @user) || (current_user.following?(@user))
-		= link_to "Follow", follow_user_path(@user)
-	- else
-		= link_to "Unfollow", unfollow_user_path(@user)
+	= @user.followers.count
+	- if @user != current_user
+		- if current_user.following?(@user)
+			= link_to "Unwatch", unfollow_user_path(@user)
+		- else
+			= link_to "Watch", follow_user_path(@user)
 
 #posts
 	- @user_posts.each do |post|

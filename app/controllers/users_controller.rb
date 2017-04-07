@@ -7,13 +7,13 @@ class UsersController < ApplicationController
 	end
 
 	def follow
-		
+		current_user.follow(@user)
 		redirect_to @user
 		flash[:notice] = "You are now following #{@user.name}."
 	end
 
 	def unfollow
-		
+		current_user.unfollow(@user)
 		redirect_to @user
 		flash[:notice] = "You are no longer following #{@user.name}."
 	end
