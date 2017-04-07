@@ -8,7 +8,12 @@ Rails.application.routes.draw do
 		resources :comments
 	end
 	resources :categories
-	resources :users
+	resources :users do
+		member do
+			get "follow"
+			get "unfollow"
+		end
+	end
 
 	root "posts#index"
 end

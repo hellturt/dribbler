@@ -64,7 +64,7 @@ class PostsController < ApplicationController
 	end
 
 	def get_category
-		@category = Category.all
+		@category = Category.all.order("name ASC")
 	end
 
 end

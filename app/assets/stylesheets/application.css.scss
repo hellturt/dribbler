@@ -3,20 +3,6 @@
  */
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 $font : 'Roboto', sans-serif;
-.notice{
-	margin: 0;
-	color: #888;
-	line-height: 1.5;
-    background-color: aliceblue;
-    text-align: center;
-}
-.alert{
-	line-height: 1.5;
-	margin: 0;
-	color: #888;
-    background-color: #ffebeb;
-    text-align: center;
-}
 
 body {
 	font-family: $font;

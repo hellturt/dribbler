@@ -19,6 +19,7 @@ gem 'simple_form', '~> 3.4'
 gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'paperclip', '~> 5.1'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'socialization', '~> 1.2'
 
 
 

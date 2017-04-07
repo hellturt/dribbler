@@ -1,26 +1,26 @@
 class CategoriesController < ApplicationController
 
-	# def show
-	# 	@category = Category.find(params[:id])
-	# end
+	def show
+		@category = Category.find(params[:id])
+	end
 
-	# def new
-	# 	@category = Category.new
-	# end
+	def new
+		@category = Category.new
+	end
 
-	# def create
-	# 	@category = Category.new(category_params)
+	def create
+		@category = Category.new(category_params)
 
-	# 	if @category.save
-	# 		redirect_to @category
-	# 	else
-	# 		render 'new'
-	# 	end
-	# end
+		if @category.save
+			redirect_to @category
+		else
+			render 'new'
+		end
+	end
 
-	# private
+	private
 
-	# def category_params
-	# 	params.require(:category).permit(:name, :description)
-	# end
+	def category_params
+		params.require(:category).permit(:name, :description)
+	end
 end
